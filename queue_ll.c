@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-struct node 
+struct node
 {
 	int data;
 	struct node *next;
@@ -23,9 +23,10 @@ void enqueue(int n)
 		struct node *temp=front;
 		while(temp->next!=NULL)
 		{
-			temp=temp->next;		
+			temp=temp->next;
 		}
 		temp->next=nw;
+		nw->next=NULL;
 	}
 }
 
@@ -45,7 +46,7 @@ int dequeue()
 	struct node *temp=front;
 	front=front->next;
 	printf("-> %d dequeued!\n",temp->data);
-	return temp->data;	
+	return temp->data;
 }
 
 int isEmpty()
@@ -56,12 +57,12 @@ int isEmpty()
 
 int main()
 {
-	enqueue(10);	
-	if(!isEmpty())enqueue(20);	
-	if(!isEmpty())enqueue(30);	
-	if(!isEmpty())enqueue(40);	
-	if(!isEmpty())enqueue(50);	
-	read();	
+	enqueue(10);
+	if(!isEmpty())enqueue(20);
+	if(!isEmpty())enqueue(30);
+	if(!isEmpty())enqueue(40);
+	if(!isEmpty())enqueue(50);
+	read();
 	dequeue();
-	read();	
-} 
+	read();
+}
